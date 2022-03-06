@@ -1,0 +1,39 @@
+# Maintainer: LinuxInsyde <linuxinsyde@outlook.com>
+pkgname=li-skel-user
+_pkgname=dotfiles
+pkgver=1
+pkgrel=1
+epoch=
+pkgdesc="New User Profile Skeleton using LinuxInsyde's Dotfiles"
+arch=('x86_64')
+url="https://github.com/LinuxInsyde/dotfiles.git"
+license=('GPL2')
+groups=()
+depends=()
+checkdepends=()
+optdepends=('zsh: zsh Shell'
+            'zsh-syntax-highlighting: zsh Syntax Highlighting Plugin'
+	    'zsh-autosuggestions: zsh Auto Suggestions Plugin'
+	    'alacritty: GPU accelerated terminal'
+	    'fish: fish Shell'
+	    'emacs: GNU Emacs')
+provides=(li-skel-user)
+conflicts=()
+replaces=()
+options=()
+changelog=
+source=("git+$url")
+noextract=()
+md5sums=('SKIP')
+validpgpkeys=()
+
+pkgver() {
+	cd "${_pkgname}"
+	printf "$pkgver"
+}
+
+package() {
+	cd $_pkgname
+	mkdir -p ${pkgdir}/etc/skel
+	cp -rf .emacs.d .config .zshrc .zprofile ${pkgdir}/etc/skel
+}
