@@ -1,0 +1,3 @@
+#+TITLE: li-pkgbuilds
+
+This repository contains PKGBUILDs for the packages in [[https://github.com/LinuxInsyde/li-pacman][li-pacman]]
